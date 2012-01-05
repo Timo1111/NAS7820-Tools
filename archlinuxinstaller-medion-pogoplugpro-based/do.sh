@@ -59,7 +59,7 @@ fi
 echo "Extracting MAC address"
 /sbin/ifconfig egiga0 | grep HWaddr | awk "{ print \$5 }" >usr/local/mac_addr
 echo -n "MAC address: "
-cat /usr/local/mac_addr
+cat usr/local/mac_addr
 cd /
 umount "$disk"2 || exit 0
 cd /mnt/parnerkey
