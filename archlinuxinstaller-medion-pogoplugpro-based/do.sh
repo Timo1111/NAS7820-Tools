@@ -43,7 +43,7 @@ mkpart primary ext3 22528s -1048576s
 mkpart primary linux-swap -1048575s -1s
 quit
 EOF
-dd if=uImage.nopci of="$disk"1 bs=512 bs=512 seek=1290 || exit 0
+dd if=uImage.nopci of="$disk"1 bs=512 || exit 0
 mke2fs -j "$disk"2 || exit 0
 mkdir /install || exit 0
 mount -t ext3 "$disk"2 /install || exit 0
