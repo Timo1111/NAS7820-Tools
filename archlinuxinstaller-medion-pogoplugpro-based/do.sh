@@ -3,9 +3,6 @@
 stage1variant=750
 disk=/dev/sda
 
-/sbin/ifconfig egiga0 | grep HWaddr | awk "{ print \$5 }" | read MAC_ADDR
-echo "MAC address: $MAC_ADDR}"
-
 echo "Mount disk to get the regular system available"
 DISK_PATH="/zyxel/mnt/sysdisk"
 
@@ -60,7 +57,9 @@ else
     tar xvzf /mnt/parnerkey/ArchLinuxARM-oxnas-latest.tar.gz || exit 0
 fi
 echo "Extracting MAC address"
-echo "$MAC_ADDR" >usr/local/mac_addrcat /usr/local/mac_addr
+/sbin/ifconfig egiga0 | grep HWaddr | awk "{ print \$5 }" >usr/local/mac_addr
+echo -n "MAC address: "
+cat /usr/local/mac_addr
 cd /
 umount "$disk"2 || exit 0
 cd /mnt/parnerkey
