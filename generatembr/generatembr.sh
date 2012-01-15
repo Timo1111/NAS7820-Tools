@@ -116,11 +116,11 @@ VAL_OCTAL0H=$(((VAL >> 6) & 3))
 
 VAL_OCTAL1L=$(((VAL >> 8) & 7))
 VAL_OCTAL1M=$(((VAL >> 11) & 7))
-VAL_OCTAL1H=$(((VAL >> 14) & 7))
+VAL_OCTAL1H=$(((VAL >> 14) & 3))
 
 VAL_OCTAL2L=$(((VAL >> 16) & 7))
 VAL_OCTAL2M=$(((VAL >> 19) & 7))
-VAL_OCTAL2H=$(((VAL >> 22) & 7))
+VAL_OCTAL2H=$(((VAL >> 22) & 3))
 
 VAL_OCTAL3L=$(((VAL >> 24) & 7))
 VAL_OCTAL3M=$(((VAL >> 27) & 7))
@@ -139,11 +139,11 @@ VAL_OCTAL0H=$(((VAL >> 6) & 3))
 
 VAL_OCTAL1L=$(((VAL >> 8) & 7))
 VAL_OCTAL1M=$(((VAL >> 11) & 7))
-VAL_OCTAL1H=$(((VAL >> 14) & 7))
+VAL_OCTAL1H=$(((VAL >> 14) & 3))
 
 VAL_OCTAL2L=$(((VAL >> 16) & 7))
 VAL_OCTAL2M=$(((VAL >> 19) & 7))
-VAL_OCTAL2H=$(((VAL >> 22) & 7))
+VAL_OCTAL2H=$(((VAL >> 22) & 3))
 
 VAL_OCTAL3L=$(((VAL >> 24) & 7))
 VAL_OCTAL3M=$(((VAL >> 27) & 7))
