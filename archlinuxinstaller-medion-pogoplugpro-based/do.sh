@@ -36,8 +36,8 @@ dd if=u-boot.wrapped of=$disk bs=512 seek=154 || exit 0
 parted <<EOF
 mklabel msdos
 mkpart primary ext3 2048s 22527s
-mkpart primary ext3 22528s -1048576s
-mkpart primary linux-swap -1048575s -1s
+mkpart primary ext3 22528s -1048577s
+mkpart primary linux-swap -1048576s -1s
 quit
 EOF
 dd if=uImage.nopci of="$disk"1 bs=512 || exit 0
