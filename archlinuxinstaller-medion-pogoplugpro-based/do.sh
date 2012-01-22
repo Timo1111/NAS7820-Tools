@@ -33,7 +33,7 @@ dd if=stage1.wrapped$stage1variant of=$disk bs=512 seek=34 || exit 0
 echo "Writing uboot"
 dd if=u-boot.wrapped of=$disk bs=512 seek=154 || exit 0
 
-parted <<EOF
+parted -s <<EOF
 mklabel msdos
 mkpart primary ext3 2048s 22527s
 mkpart primary ext3 22528s -1048577s
