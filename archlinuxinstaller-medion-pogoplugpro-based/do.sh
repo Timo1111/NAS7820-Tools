@@ -62,6 +62,10 @@ echo "Extracting MAC address"
 /sbin/ifconfig egiga0 | grep HWaddr | awk "{ print \$5 }" >usr/local/mac_addr
 echo -n "MAC address: "
 cat usr/local/mac_addr
+[ -f /mnt/parnerkey/rc.conf ] && {
+	echo "Installing pre-setup rc.conf"
+	cp /mnt/parnerkey/rc.conf etc/
+}
 cd /
 umount "$disk"2 || exit 0
 cd /mnt/parnerkey
