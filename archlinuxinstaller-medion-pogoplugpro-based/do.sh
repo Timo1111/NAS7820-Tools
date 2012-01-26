@@ -6,6 +6,8 @@ disk=/dev/sda
 echo "Mount disk to get the regular system available"
 DISK_PATH="/zyxel/mnt/sysdisk"
 
+cd /mnt/parnerkey
+
 /bin/mkdir -p ${DISK_PATH}
 IMG_PATH="/ram_bin"
 /bin/mount -t ext2 -o loop,ro ${DISK_PATH}/sysdisk.img ${IMG_PATH} || exit 0
