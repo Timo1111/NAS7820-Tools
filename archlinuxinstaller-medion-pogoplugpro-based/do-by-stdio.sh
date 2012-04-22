@@ -35,11 +35,13 @@ dd if=stage1.wrapped$stage1variant of=$disk bs=512 seek=34 || exit 0
 echo "Writing uboot"
 dd if=u-boot.wrapped of=$disk bs=512 seek=154 || exit 0
 
-parted $disk -s -- mklabel msdos
-parted $disk -s -- mkpart primary ext3 2048s 22527s
-parted $disk -s -- mkpart primary ext3 22528s -1048577s
-parted $disk -s -- mkpart primary linux-swap -1048576s -1s
-
+parted $disk -s <<EOF
+mklabel msdos
+mkpart primary ext3 2048s 22527s
+mkpart primary ext3 22528s -1048577s
+mkpart primary linux-swap -1048576s -1s
+quit
+EOF
 dd if=uImage.nopci of="$disk"1 bs=512 || exit 0
 mke2fs -j "$disk"2 || exit 0
 mkdir /install || exit 0
